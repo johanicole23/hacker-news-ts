@@ -1,16 +1,17 @@
 import { each } from 'cheerio/dist/commonjs/api/traversing';
 import { ScraperService } from './services/ScraperService';
+import { WordCounter } from './utils/WordCounter'
 
 /**
  * Principal Method to manage the scraping and filters
  */
 (async () => {
-    const scraper = new ScraperService(10);
+    const scraper = new ScraperService(3);
     try {
         const entries = await scraper.scrapeEntries();
-       
+
         entries.forEach(entry => {
-          console.log(entry.showStatement());
+            console.log(entry.showStatement());
         });
 
 
@@ -18,3 +19,6 @@ import { ScraperService } from './services/ScraperService';
         console.error('Error occurred during scraping:', error);
     }
 })();
+const exampleText = "This is - a self-explained example";
+const counter =  WordCounter.countWords(exampleText);
+console.log(`Word count: ${counter}`); 
