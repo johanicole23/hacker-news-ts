@@ -5,24 +5,14 @@ import { ScraperService } from './services/ScraperService';
  * Principal Method to manage the scraping and filters
  */
 (async () => {
-    const scraper = new ScraperService();
+    const scraper = new ScraperService(10);
     try {
         const entries = await scraper.scrapeEntries();
        
         entries.forEach(entry => {
-            let statement = `
-            ==========================================================
-            ${entry.entryTitle}
-            ==========================================================
-            ENTRY ID     : ${entry.entryId}
-            POINTS       : ${entry.entryPoints}
-            COMMENTS     : ${entry.entryComments}
-            ----------------------------------------------------------
-            `;
-            console.log(statement);
+          console.log(entry.showStatement());
         });
-        // console.log('Scraped entries:', entries);
-     
+
 
     } catch (error) {
         console.error('Error occurred during scraping:', error);
