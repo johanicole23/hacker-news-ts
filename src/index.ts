@@ -2,10 +2,6 @@ import { each } from 'cheerio/dist/commonjs/api/traversing';
 import { ScraperService } from './services/ScraperService';
 import { WordCounter } from './utils/WordCounter'
 
-
-const exampleText = "This is - a self-explained example";
-const counter = WordCounter.countWords(exampleText);
-console.log(`Word count: ${counter}`);
 /**
  * Principal Method to manage the scraping and filters
  */
