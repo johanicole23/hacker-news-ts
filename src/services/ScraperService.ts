@@ -19,9 +19,14 @@ export class ScraperService {
             const response = await axios.get(this.url);
             const $ = cheerio.load(response.data);
             //Elements from Hacker News with 'athing' class
+           
             $('.athing').slice(0, this.numberOfEntries).each((index, element) => {
-                const entryId = parseInt($(element).attr('id')||'0');
-                entries.push(new Entry(entryId,'ABC',1,1))
+                const idElement = $(element).find('.rank').text();
+                const entryId = parseInt(idElement.replace('.', '').trim()) || 0;
+
+                const titleElement = $(element).find('.titleline a');
+                const entryTitle = titleElement.text();
+                entries.push(new Entry(entryId, entryTitle, 1, 1))
             })
         }
         catch (error) {
