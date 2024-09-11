@@ -1,5 +1,7 @@
 import axios from 'axios';
-
+/**
+ * Class for make HTTP request with a url
+ */
 export class HttpClientService {
     private url: string;
 

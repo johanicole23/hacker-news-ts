@@ -3,7 +3,7 @@ import { Entry } from '../models/Entry';
 import { HttpClientService } from './HttpClientService';
 
 /**
- * Parser with cheerio de response data in html
+ * Parser with cheerio the response data in html
  */
 export class ParserService {
     static parseEntries(htmlData: string, numberOfEntries: number): Entry[] {
