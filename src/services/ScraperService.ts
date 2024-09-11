@@ -28,7 +28,7 @@ export class ScraperService {
                 const idElement = $(element).find('.rank');
                 const entryId = parseInt(idElement.text().replace('.', '').trim()) || 0;
 
-                const titleElement = $(element).find('.titleline a');
+                const titleElement = $(element).find('.titleline > a');
                 const entryTitle = titleElement.text().trim();
 
                 const subtextClass = $(element).next().find('.subtext'); 
