@@ -12,6 +12,7 @@
 - **Jest**: Unit testing using Test-Driven Development (TDD).
 - **axios**: HTTP requests.
 - **cheerio**: HTML parsing.
+- **express**: Framework for Node.js.
 
 ### Installation
 1. Run `npm install`
