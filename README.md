@@ -23,6 +23,7 @@
 ### Commands in Terminal
 1. Run `npm install`
 2. Run `npm run start`
+3. Run `npm test`
 
 ### FrontEnd Repository
 `https://github.com/johanicole23/hackernews-react.git`
