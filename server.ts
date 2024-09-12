@@ -4,12 +4,18 @@ import { OrderByPoints } from './src/filters/OrderByPoints';
 import { OrderByComments } from './src/filters/OrderByComments';
 import { WordCounter } from './src/utils/WordCounter';
 
+
+const cors = require('cors');
 const app = express();
 const port = 3000; 
 
 const url: string = "https://news.ycombinator.com/";
 const numberOfEntries: number = 30;
 const numberOfWords : number = 5;
+
+app.use(cors({
+    origin: 'http://localhost:3001'
+}));
 
 app.use(express.json());
 
@@ -28,10 +34,12 @@ app.get('/api/entries', async (req: Request, res: Response) => {
 
     res.json({
         lessThanFive: entriesByPoints,
-        moreThanFive: entriesByComments
+        moreThanFive: entriesByComments,
+        normalEntries: entries
     });
 });
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
